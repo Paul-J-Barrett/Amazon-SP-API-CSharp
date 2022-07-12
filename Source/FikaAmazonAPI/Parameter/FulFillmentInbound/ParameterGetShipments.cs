@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using static FikaAmazonAPI.Utils.Constants;
-using FikaAmazonAPI.AmazonSpApiSDK.Models.FulfillmentInbound;
 
 namespace FikaAmazonAPI.Parameter.FulFillmentInbound
 {

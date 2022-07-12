@@ -20,29 +20,31 @@ namespace FikaAmazonAPI.SampleCode
         
         public InboundShipmentList GetInboundShipments()
         {
-            var shipments = new InboundShipmentList();
             var param = new Parameter.FulFillmentInbound.ParameterGetShipments()
             {
                 QueryType = Constants.QueryType.DATE_RANGE,
                 MarketplaceId = MarketPlace.US.ID,
-                ShipmentStatusList = (new List<ShipmentStatus> { ShipmentStatus.CLOSED, ShipmentStatus.DELIVERED, ShipmentStatus.RECEIVING }),
+                ShipmentStatusList = (new List<ShipmentStatus>() { ShipmentStatus.CLOSED, ShipmentStatus.DELIVERED, ShipmentStatus.RECEIVING }),
                 LastUpdatedAfter = DateTime.Now.AddDays(-60),
                 LastUpdatedBefore = DateTime.Now
             };
             GetShipmentsResult results = null;
+            var shipments = new InboundShipmentList();
             do
             {
                 results = amazonConnection.FulFillmentInbound.GetShipments(param);
                 shipments.AddRange(results.ShipmentData);
-                Console.WriteLine(results.NextToken);
+                //Console.WriteLine(results.NextToken);
                 param.NextToken = results.NextToken;
-                foreach (var i in results.ShipmentData.Take(5))
+                param.QueryType = Constants.QueryType.NEXT_TOKEN;
+                foreach (var i in results.ShipmentData)
                 {
-                    Console.WriteLine($"{i.ShipmentId} {i.ShipmentStatus}");
+                    Console.WriteLine($"{i.ShipmentId} {i.ShipmentStatus} {i.ConfirmedNeedByDate}");
                 }
-                Thread.Sleep(10000);
+                //Thread.Sleep(5000);
             } while (String.IsNullOrEmpty(results.NextToken) != true);
-
+            
+            Console.WriteLine($"records downloaded: {shipments.Count}");
             return shipments;
 
         }

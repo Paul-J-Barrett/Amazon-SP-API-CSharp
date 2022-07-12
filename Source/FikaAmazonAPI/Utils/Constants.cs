@@ -34,7 +34,7 @@ namespace FikaAmazonAPI.Utils
             PartialUpdate,
         }
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum ShipmentStatusList
+        public enum ShipmentStatus
         {
             WORKING,
             SHIPPED,

@@ -1,4 +1,6 @@
-﻿using FikaAmazonAPI.ConstructFeed;
+﻿using System;
+using System.Threading.Tasks;
+using FikaAmazonAPI.ConstructFeed;
 using FikaAmazonAPI.ConstructFeed.Messages;
 using FikaAmazonAPI.Parameter.Finance;
 using FikaAmazonAPI.Parameter.ListingItem;
