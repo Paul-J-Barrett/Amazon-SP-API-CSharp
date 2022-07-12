@@ -64,7 +64,14 @@ namespace FikaAmazonAPI.AmazonSpApiSDK.Models.FulfillmentInbound
         /// Enum SuffocationStickering for value: SuffocationStickering - Custom value
         /// </summary>
         [EnumMember(Value = "SuffocationStickering")]
-        SuffocationStickering = 250
+        SuffocationStickering = 250,
+        
+        /// <summary>
+        /// Enum SetCreation for value: SetCreation - Custom value
+        /// </summary>
+        [EnumMember(Value = "SetCreation")]
+        SetCreation = 251
+        
     }
 
 }
