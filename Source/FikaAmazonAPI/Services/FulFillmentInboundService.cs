@@ -72,7 +72,7 @@ namespace FikaAmazonAPI.Services
         {
             List<KeyValuePair<string, string>> queryParameters = new List<KeyValuePair<string, string>>();
             queryParameters.Add(new KeyValuePair<string, string>("MarketplaceId", AmazonCredential.MarketPlace.ID));
-
+            //TODO: Ticket https://trendnation.atlassian.net/browse/ITHD-3777
             await CreateAuthorizedRequestAsync(FulFillmentInboundApiUrls.GetPreorderInfo(shipmentId), RestSharp.Method.Get, queryParameters, cancellationToken: cancellationToken);
 
             var response = await ExecuteRequestAsync<InboundShipmentResponse>(RateLimitType.FulFillmentInbound_GetPreorderInfo, cancellationToken);
