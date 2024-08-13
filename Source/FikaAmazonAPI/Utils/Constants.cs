@@ -6,7 +6,7 @@ namespace FikaAmazonAPI.Utils
 {
     public class Constants
     {
-        public readonly static string AmazonToeknEndPoint = "https://api.amazon.com/auth/o2/token";
+        public readonly static string AmazonTokenEndPoint = "https://api.amazon.com/auth/o2/token";
         public readonly static string DateISO8601Format = "yyyy-MM-ddTHH:mm:ss.fffZ";
         public readonly static string TestCase200 = "TEST_CASE_200";
         public readonly static string TestCase400 = "TEST_CASE_400";
@@ -606,7 +606,8 @@ namespace FikaAmazonAPI.Utils
             Store,
             StoreStockMovement,
             WebstoreItem,
-            CartonContentsRequest
+            CartonContentsRequest,
+            EasyShipDocument,
         }
 
         [JsonConverter(typeof(StringEnumConverter))]
@@ -734,6 +735,30 @@ namespace FikaAmazonAPI.Utils
         //    /// </summary>
         //    P1M
         //}
+
+    }
+
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum FullFillmentInboundPlanStatus
+    {
+        [EnumMember(Value = "ACTIVE")]
+        ACTIVE = 0,
+
+        [EnumMember(Value = "VOIDED")]
+        VOIDED = 1,
+
+        [EnumMember(Value = "SHIPPED")]
+        SHIPPED = 2,
+    }
+
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum FullFillmentInboundSortBy
+    {
+        [EnumMember(Value = "LAST_UPDATED_TIME")]
+        LAST_UPDATED_TIME = 0,
+
+        [EnumMember(Value = "CREATION_TIME")]
+        CREATION_TIME = 1,
 
     }
 }
