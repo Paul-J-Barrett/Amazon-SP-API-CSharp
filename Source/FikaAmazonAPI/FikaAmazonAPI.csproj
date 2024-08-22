@@ -22,7 +22,7 @@
 	<RepositoryType>git</RepositoryType>
 	<PackageIcon>icon.jpg</PackageIcon>
 	<UserSecretsId>2ff602c6-a213-4df0-88f2-cf1a1df95fbc</UserSecretsId>
-	<TargetFrameworks>net461;net462;net472;net5.0;net6.0;net7.0;netstandard2.0;netstandard2.1</TargetFrameworks>
+	<TargetFrameworks>net8.0;netstandard2.0;netstandard2.1</TargetFrameworks>
     
   </PropertyGroup>
   <ItemGroup>
@@ -32,8 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AWSSDK.SecurityToken" Version="3.7.300.106" />
-    <PackageReference Include="AWSSDK.SQS" Version="3.7.301.19" />
+    <PackageReference Include="AWSSDK.SecurityToken" Version="3.7.400.5" />
+    <PackageReference Include="AWSSDK.SQS" Version="3.7.400.5" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="RestSharp" Version="111.4.1" />
